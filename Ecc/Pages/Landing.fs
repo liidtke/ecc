@@ -4,18 +4,27 @@ open Falco
 open Falco.Routing
 open Falco.Markup
 open Falco.Markup.Attr
-open Pages.Components
 
 let main () =
-    Elem.main
-        [acl "l-main"]
-        [ Elem.div
-              [ acl "p-row" ]
-              [ Elem.section [ acl "p-strip is-bordered" ] [ Elem.h2 [] [ txt "Realizar Login" ] ]
+    Elem.section
+        [ acl "p-section" ]
+        [
+          Elem.form
+              [ acl "row--25-75" ]
+              [
+                Elem.h2 [] [ txt "Realizar Login" ]
+                Elem.label [ aFor "username"; acl "" ] [ txt "Email" ]
+                Elem.input
+                    [ aType "email"
+                      aid "username"
+                      name "username"
+                      Attr.placeholder "email@site.com" ]
+                Elem.label [ aFor "pwd"; acl "" ] [ txt "Senha" ]
+                Elem.input [ aType "password"; aid "pwd"; name "pwd" ] ]
 
-                ] ]
+          ]
 
-let homePage () = page2 "Home" <| main ()
+let homePage () = page "Home" <| main ()
 
 let home = get "/login" (Response.ofHtml <| homePage ())
 let endpoints = [ home ]

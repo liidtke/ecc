@@ -1,10 +1,8 @@
 [<AutoOpen>]
-module Pages.Layout
+module Layout
 
 open Falco.Markup
 open Falco.Markup.Attr
-
-
 
 let html title body =
     Elem.html
@@ -41,14 +39,23 @@ let html title body =
                 Elem.script [ src "https://unpkg.com/htmx.org@1.9.7" ] []
                 Elem.script [ src "https://unpkg.com/hyperscript.org@0.9.7" ] []
                 // Elem.script [ src "https://cdn.jsdelivr.net/npm/flatpickr" ] []
-                Elem.title [] [ txt title ] ]
+                Elem.title [] [ Text.raw title ] ]
           Elem.body [] body ]
 
 let page title ct =
     let main =
-        ct @ [ Elem.div [ aid "message"; acl "toaster-wrapper" ] [] ]
-        |> Elem.main [ acl "l-main" ]
+        (Elem.div [acl "p-strip is-shallow u-no-padding--bottom"] [ct]) :: [ Elem.div [ aid "message"; acl "toaster-wrapper" ] [] ]
+        |> Elem.main [ acl "l-main row" ]
 
     html title [ header (); main ]
 
-let page2 title c = page title <| [ c ]
+let page2 title ct = page title <| Elem.div [] ct
+
+let notAuthorized =
+    [ Elem.section
+          [ Attr.class' "p-section--hero" ]
+          [
+
+            Elem.p [] [ Text.raw "Não Autorizado" ]
+            Elem.a [ Attr.class' "p-button"; Attr.href "/login" ] [ Text.raw "Realizar Login" ] ] ]
+    |> html "Não Autorizado"

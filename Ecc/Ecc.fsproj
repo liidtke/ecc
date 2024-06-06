@@ -11,14 +11,13 @@
         <Compile Include="Security.fs"/>
         <Compile Include="Data.fs" />
         <Compile Include="CategoryAggregate.fs" />
+        <Compile Include="Components.fs" />
+        <Compile Include="Layout.fs" />
         <Compile Include="Application.fs"/>
         <Compile Include="WeatherForecast.fs"/>
         <Compile Include="Pages\Models.fs" />
-        <Compile Include="Pages\Components.fs" />
-        <Compile Include="Pages\Layout.fs" />
         <Compile Include="Pages\App.fs" />
-        <Compile Include="Pages\Category.fs"/>
-        <Compile Include="Pages\Target.fs" />
+        <Compile Include="Pages\Person.fs" />
         <Compile Include="Pages\Landing.fs" />
         <Compile Include="Controllers/WeatherForecastController.fs"/>
         <Compile Include="Endpoints.fs" />
