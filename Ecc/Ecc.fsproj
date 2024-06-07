@@ -17,8 +17,10 @@
         <Compile Include="WeatherForecast.fs"/>
         <Compile Include="Pages\Models.fs" />
         <Compile Include="Pages\App.fs" />
+        <Compile Include="Pages\Users.fs" />
+        <Compile Include="Pages\Management.fs" />
         <Compile Include="Pages\Person.fs" />
-        <Compile Include="Pages\Landing.fs" />
+        <Compile Include="Pages\Login.fs" />
         <Compile Include="Controllers/WeatherForecastController.fs"/>
         <Compile Include="Endpoints.fs" />
         <Compile Include="Program.fs"/>

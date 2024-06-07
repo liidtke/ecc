@@ -44,18 +44,22 @@ let html title body =
 
 let page title ct =
     let main =
-        (Elem.div [acl "p-strip is-shallow u-no-padding--bottom"] [ct]) :: [ Elem.div [ aid "message"; acl "toaster-wrapper" ] [] ]
-        |> Elem.main [ acl "l-main row" ]
+        Elem.div
+            [ acl "l-application" ]
+            [
+              Elem.main [ acl "l-main" ] [header(); Elem.div [ acl "p-strip is-shallow u-no-padding--bottom" ] [ ct ] ]
+              panel()
+              ]
+    //:: [ Elem.div [ aid "message"; acl "toaster-wrapper" ] [] ]
 
-    html title [ header (); main ]
+    html title [ main ]
 
 let page2 title ct = page title <| Elem.div [] ct
 
 let notAuthorized =
     [ Elem.section
-          [ Attr.class' "p-section--hero" ]
+          [ Attr.class' "row--25-75 p-section--hero" ]
           [
-
             Elem.p [] [ Text.raw "Não Autorizado" ]
             Elem.a [ Attr.class' "p-button"; Attr.href "/login" ] [ Text.raw "Realizar Login" ] ] ]
     |> html "Não Autorizado"

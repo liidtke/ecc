@@ -11,13 +11,15 @@
 html{
 }
 
+body { margin: 0; }
+
 /*main {*/
 /*    padding: 2rem 4rem 0 4rem;*/
 /*}*/
 
-body > nav{
-box-shadow: 0 1px 0 var(--nav-border-color);
-}
+/*body > nav{*/
+/*box-shadow: 0 1px 0 var(--nav-border-color);*/
+/*}*/
 
 .button-group {
     margin-top: 8px;
@@ -38,4 +40,8 @@ h1.header{
     left: 50%;
     bottom: 30px;
 
+}
+
+.show {
+    display: unset !important;
 }

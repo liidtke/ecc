@@ -1,4 +1,4 @@
-module Pages.Landing
+module Pages.Login
 
 open Falco
 open Falco.Routing

@@ -19,7 +19,6 @@ let swapOuter = hxSwap "outerHTML"
 let hypr = Attr.create "_"
 let aFor = Attr.for'
 let aType = Attr.type'
-
 let place = Attr.placeholder
 let tp = Attr.type'
 
@@ -57,10 +56,10 @@ let header () =
                                               Attr.alt ""
                                               Attr.src "https://assets.ubuntu.com/v1/82818827-CoF_white.svg" ] ]
                                   Elem.span [ acl "p-navigation__logo__title" ] [ txt "ECC - Gerenciador" ] ] ]
-                      a [ acl "p-navigation__toggle--open"; Attr.href "/login" ] [ txt "Entrar" ]
-                      //todo here https://vanillaframework.io/docs/examples/layouts/documentation#navigation-closed
+                      a [ acl "p-navigation__toggle--open"; aid "navigation"; Attr.title "Menu"; Attr.href "#navigation"; hypr "on click toggle .show on .p-navigation__nav on click toggle .show on .p-navigation__items" ] [ txt "Menu" ]
+                      a [ acl "p-navigation__toggle--close"; aid "navigation-closed"; Attr.title "Fechar"; Attr.href "#navigation-closed" ] [ txt "Fechar" ]
                       ]
-                div
+                nav
                     [ acl "p-navigation__nav" ]
                     [ ul
                           [ acl "p-navigation__items" ]
@@ -95,4 +94,9 @@ let toToaster (output: ServiceOutput<'t>) =
               [ txt message ] ]
 
 
-
+let panel () =
+    Elem.aside
+        [ acl "l-aside is-collapsed"; aid "aside-panel" ]
+        [ Elem.div
+              [ acl "p-panel" ]
+              [ Elem.button [ hypr "on click toggle .is-collapsed on #aside-panel" ] [ txt "Fechar" ] ] ]
